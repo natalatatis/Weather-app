@@ -1,5 +1,6 @@
 const weatherForm = document.getElementById("weatherForm");
 const resultDiv = document.getElementById("weatherResult");
+let weatherChart;
 
 //Event listener to handle the form submission
 weatherForm.addEventListener("submit", async (event) => {
@@ -48,11 +49,6 @@ weatherForm.addEventListener("submit", async (event) => {
       throw new Error("No valid city data received!");
     }
 
-    /* const name = data.name;
-    const temperature = data.main.temp;
-    const description = data.weather[0].description;
-    const humidity = data.main.humidity;*/
-
     //html to display
     resultDiv.innerHTML = weatherData
       .map(
@@ -69,6 +65,50 @@ weatherForm.addEventListener("submit", async (event) => {
     `
       )
       .join("");
+
+    const cityNames = weatherData.map((data) => data.name);
+    const temperatures = weatherData.map((data) => data.main.temp);
+
+    //Gets the temperatures and assings a color depending on their value
+    const colors = temperatures.map((temp) => {
+      if (temp < 10) return "#87CEEB"; // Sky blue
+      if (temp >= 10 && temp <= 20) return "#32CD32"; // Green
+      if (temp > 20 && temp <= 30) return "#FFA500"; // Orange
+      return "#FF4500"; // Red for >30°C
+    });
+
+    //Destroy the existing chart if it exists
+    if (weatherChart) {
+      weatherChart.destroy();
+    }
+
+    //Get the canvas element where the graph will be displayed
+    const ctx = document.getElementById("myChart").getContext("2d");
+
+    //Create the bar chart
+    weatherChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: cityNames,
+        datasets: [
+          {
+            label: "Temperature (°C)",
+            data: temperatures,
+            backgroundColor: colors,
+            borderColor: "rgba(54, 162, 235, 1)",
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+          },
+        },
+      },
+    });
   } catch (error) {
     resultDiv.innerHTML = `<div class="alert alert-danger">${error.message}</div>`;
   }
