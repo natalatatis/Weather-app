@@ -1,0 +1,83 @@
+body {
+  background: linear-gradient(135deg, #f3f4f6, #e5e7eb);
+  color: #333;
+  font-family: "Inter", sans-serif;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather-card {
+  background: #f9f9f9;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  margin-top: 20px;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  border-radius: 25px;
+  padding: 20px 15px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.btn-primary {
+  background: hsl(226, 93%, 52%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  padding: 12px 20px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-secondary {
+  background: #e5e7eb;
+  color: #374151;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: background 0.3s;
+  width: auto;
+  position: absolute;
+  right: 10px;
+  top: 10px;
+}
+
+.btn-secondary:hover {
+  background: #d1d5db;
+}
+
+.card-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.result-card {
+  margin-top: 20px;
+  border-radius: 12px;
+  background: #f9fafb;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  text-align: left;
+}
+
+.result-card h5 {
+  font-weight: bold;
+  color: #333;
+}
+
+.result-card p {
+  color: #555;
+}
