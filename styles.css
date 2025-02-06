@@ -40,25 +40,6 @@ body {
   width: 100%;
 }
 
-.btn-secondary {
-  background: #e5e7eb;
-  color: #374151;
-  border: none;
-  border-radius: 8px;
-  font-size: 0.9rem;
-  padding: 8px 14px;
-  cursor: pointer;
-  transition: background 0.3s;
-  width: auto;
-  position: absolute;
-  right: 10px;
-  top: 10px;
-}
-
-.btn-secondary:hover {
-  background: #d1d5db;
-}
-
 .card-title {
   font-size: 1.5rem;
   font-weight: bold;
